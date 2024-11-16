@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="overlay">
+                <div class="review">
+                    <div class="close">×</div>
+                    <img id="overlayImage" draggable="false" />
+                    <div class="content">
+                        <div class="mediaInfo">
+                            <div class="left">
+                                <div id="overlayTitle" class="title"></div>
+                                <div id="overlayYear" class="date"></div>
+                            </div>
+                            <div class="right">
+                                <div id="overlayGenre" class="genre"></div>
+                                <div id="overlayScore" class="score"></div>
+                            </div>
+                        </div>
+
+                        <div id="overlayDesc" class="description"></div>
+                    </div>
+                </div>
+            </div>
+            <ul class="mediaList"></ul>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

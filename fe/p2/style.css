@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+* {
+    font-family: "Noto Sans KR", sans-serif;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3c4245;
+}
+
+.container {
+    width: 75%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    overflow-y: scroll;
+}
+
+.overlay .review {
+    width: 50%;
+    height: 40em;
+    margin: auto;
+    background-color: #dedfe4;
+    border-radius: 0.5em;
+    /* padding: 1em; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.overlay .review .close {
+    position: absolute;
+    right: 25%;
+    padding: 0.5em;
+    font-size: 1.5rem;
+    cursor: pointer;
+    height: 1.7em;
+
+    border-radius: 0 0.3em 0 0;
+    transition: background-color 0.4s;
+}
+
+.overlay .review .close:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay .review img {
+    width: 100%;
+    height: 4em;
+    object-fit: cover;
+    border-radius: 0.5em 0.5em 0 0;
+}
+
+.overlay .review .content {
+    padding: 0 1em;
+    height: calc(100% - 4em);
+}
+
+.overlay .review .content .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.4em;
+}
+
+.overlay .review .content .description {
+    font-size: 1rem;
+    overflow-y: hidden;
+    overflow-wrap: break-word;
+}
+
+.overlay .review .content .mediaInfo {
+    display: flex;
+    width: 100%;
+}
+
+.overlay .review .content .left,
+.overlay .review .content .right {
+    display: flex;
+    width: 75%;
+
+    align-items: center;
+}
+
+.overlay .review .content .right {
+    width: 25%;
+}
+
+.overlay .review .content .right {
+    justify-content: flex-end;
+}
+
+.overlay .review .content .right .score {
+    font-weight: bold;
+    margin-left: 0.5em;
+}
+
+.mediaList {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(267px, 1fr));
+    gap: 1em;
+
+    justify-items: center;
+}
+
+.media {
+    width: 267px;
+    height: 220px;
+    background-color: #5f6769;
+    border-radius: 0.5em;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    transition: all 0.4s;
+}
+
+.media:hover {
+    transform: scale(1.03);
+    transition: transform 0.4s;
+    cursor: pointer;
+}
+
+.media img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.5em 0.5em 0 0;
+}
+
+.media .score {
+    height: 0.2rem;
+    width: 80%;
+    background-color: #719192;
+}
+
+.media .title {
+    font-size: 1rem;
+    margin-top: 0.25em;
+    padding: 0 0.5em;
+    height: 3em;
+    font-weight: bold;
+    color: white;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+}
