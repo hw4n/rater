@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>평가 추가하기</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <form id="media-form" action="" method="post">
+                <label for="ftitle">제목:</label>
+                <input type="text" id="ftitle" name="title" required />
+                <label for="fyear">개봉연도:</label>
+                <input type="text" id="fyear" name="release_year" required />
+                <label for="fgenre">장르:</label>
+                <input type="text" id="fgenre" name="genre" required />
+                <label for="fscore">평점:</label>
+                <input
+                    type="number"
+                    id="fscore"
+                    name="score"
+                    min="0"
+                    max="10"
+                    step="1"
+                    required
+                />
+                <label for="fimage">이미지 URL:</label>
+                <input
+                    type="text"
+                    id="fimage"
+                    name="image_url"
+                    placeholder="https://..."
+                />
+                <label for="freview">평가:</label>
+                <textarea id="freview" name="review"></textarea>
+                <input type="submit" value="제출" />
+            </form>
+        </div>
+        <script src="add-script.js"></script>
+    </body>
+</html>

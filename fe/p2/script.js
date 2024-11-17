@@ -40,6 +40,14 @@ function initMedia(media) {
         </li>`;
     }
 
+    innerhtml += `
+    <li id="add" class="media" onclick="location.href='add.html'">
+        <div class="media-body">
+            <div class="title">평가 추가하기</div>
+            <div class="add-symbol">+</div>
+        </div>
+    </li>`;
+
     document.querySelector(".mediaList").innerHTML = innerhtml;
 }
 

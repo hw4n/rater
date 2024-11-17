@@ -53,7 +53,7 @@ exports.createMedia = async (req, res) => {
         }
 
         const result = await database.pool.query(
-            "INSERT INTO media (title, genre, release_year, score, review) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+            "INSERT INTO media (title, genre, release_year, score, review, image_url) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
             [title, genre, release_year, score, review, image_url]
         );
         return res.status(201).json(result.rows[0]);
