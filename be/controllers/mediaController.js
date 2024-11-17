@@ -6,6 +6,7 @@ const mediaSchema = Joi.object({
     release_year: Joi.number().required(),
     score: Joi.number().min(0).max(10).required(),
     review: Joi.string(),
+    image_url: Joi.string(),
 });
 
 const database = require("../services/database");
@@ -41,7 +42,7 @@ exports.createMedia = async (req, res) => {
         return res.status(400).json({ error: error.details[0].message });
     }
 
-    const { title, genre, release_year, score, review } = req.body;
+    const { title, genre, release_year, score, review, image_url } = req.body;
     try {
         const existingMedia = await database.pool.query(
             "SELECT * FROM media WHERE title = $1 AND release_year = $2",
@@ -52,8 +53,8 @@ exports.createMedia = async (req, res) => {
         }
 
         const result = await database.pool.query(
-            "INSERT INTO media (title, genre, release_year, score, review) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-            [title, genre, release_year, score, review]
+            "INSERT INTO media (title, genre, release_year, score, review) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+            [title, genre, release_year, score, review, image_url]
         );
         return res.status(201).json(result.rows[0]);
     } catch (error) {
@@ -68,7 +69,7 @@ exports.updateMediaById = async (req, res) => {
         return res.status(400).json({ error: error.details[0].message });
     }
 
-    const { title, genre, release_year, score, review } = req.body;
+    const { title, genre, release_year, score, review, image_url } = req.body;
     try {
         const existingMedia = await database.pool.query(
             "SELECT * FROM media WHERE id = $1",
@@ -79,8 +80,8 @@ exports.updateMediaById = async (req, res) => {
         }
 
         const result = await database.pool.query(
-            "UPDATE media SET title = $1, genre = $2, release_year = $3, score = $4, review = $5 WHERE id = $6 RETURNING *",
-            [title, genre, release_year, score, review, id]
+            "UPDATE media SET title = $1, genre = $2, release_year = $3, score = $4, review = $5, image_url = $6 WHERE id = $7 RETURNING *",
+            [title, genre, release_year, score, review, image_url, id]
         );
         return res.status(200).json(result.rows[0]);
     } catch (error) {

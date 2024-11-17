@@ -11,7 +11,7 @@ close.addEventListener("click", closeOverlay);
 
 const mediaArray = [];
 
-fetch("http://localhost:3000/media")
+fetch("http://localhost:3000/api/v1/media")
     .then((res) => {
         return res.json();
     })
