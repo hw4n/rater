@@ -12,7 +12,15 @@
                 <label for="ftitle">제목:</label>
                 <input type="text" id="ftitle" name="title" required />
                 <label for="fyear">개봉연도:</label>
-                <input type="text" id="fyear" name="release_year" required />
+                <input
+                    type="number"
+                    id="fyear"
+                    name="release_year"
+                    min="1900"
+                    max="2099"
+                    step="1"
+                    required
+                />
                 <label for="fgenre">장르:</label>
                 <input type="text" id="fgenre" name="genre" required />
                 <label for="fscore">평점:</label>
