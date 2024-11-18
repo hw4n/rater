@@ -10,6 +10,7 @@ overlay.addEventListener("click", (e) => {
 close.addEventListener("click", closeOverlay);
 
 const mediaArray = [];
+let DISPLAYING_MEDIA_ID = null;
 
 fetch("http://localhost:3000/api/v1/media")
     .then((res) => {
@@ -80,6 +81,8 @@ function setOverlay(mediaId) {
     overlayGenre.textContent = media.genre;
     overlayScore.textContent = media.score;
     overlayDesc.textContent = media.review;
+
+    DISPLAYING_MEDIA_ID = +mediaId;
 }
 
 function openOverlay() {
@@ -88,4 +91,5 @@ function openOverlay() {
 
 function closeOverlay() {
     overlay.style.display = "none";
+    DISPLAYING_MEDIA_ID = null;
 }

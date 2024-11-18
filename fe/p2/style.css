@@ -47,20 +47,37 @@ body {
     border-radius: 0.5em;
     /* padding: 1em; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
+.overlay .review .edit,
+.overlay .review .delete,
 .overlay .review .close {
     position: absolute;
-    right: 25%;
     padding: 0.5em;
     font-size: 1.5rem;
     cursor: pointer;
     height: 1.7em;
+    transition: all 0.4s;
+}
 
+.overlay .review .delete {
+    top: 2.5em;
+    color: #f7b731;
+    border-radius: 0 0 0 0.3em;
+}
+
+.overlay .review .close {
+    right: 0;
     /* background-color: rgba(255, 255, 255, 0.5); */
     color: white;
     border-radius: 0 0.3em 0 0;
     transition: all 0.4s;
+}
+
+.overlay .review .edit:hover,
+.overlay .review .delete:hover {
+    transform: scale(1.1);
 }
 
 .overlay .review .close:hover {
